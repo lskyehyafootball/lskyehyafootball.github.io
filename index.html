@@ -70,6 +70,18 @@ header p { color:#ccc; }
 
 /* FOOTER */
 footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222; }
+/* MODAL ANIMATIONS */
+.modal-content {
+  transform: scale(0.7);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#formModal.show .modal-content,
+#thanksModal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
 </style>
 </head>
 
@@ -162,24 +174,41 @@ footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222;
 
 <footer>
   © 2026 LSK Football & LSK Yehya • Football Editing Experts
-</footer>
-
+</footer> 
 <script>
-/* MODAL FUNCTIONS */
-function openForm() { document.getElementById("formModal").style.display="flex"; }
-function closeForm() { document.getElementById("formModal").style.display="none"; }
-function showThanks() { document.getElementById("formModal").style.display="none"; document.getElementById("thanksModal").style.display="flex"; }
-function closeThanks() { document.getElementById("thanksModal").style.display="none"; }
+function openForm() {
+  const modal = document.getElementById("formModal");
+  modal.style.display = "flex";
+  modal.classList.add("show");
+}
+
+function closeForm() {
+  const modal = document.getElementById("formModal");
+  modal.classList.remove("show");
+  setTimeout(() => { modal.style.display = "none"; }, 300); // wait for animation
+}
+
+function showThanks() {
+  const thanksModal = document.getElementById("thanksModal");
+  thanksModal.style.display = "flex";
+  thanksModal.classList.add("show");
+}
+
+function closeThanks() {
+  const thanksModal = document.getElementById("thanksModal");
+  thanksModal.classList.remove("show");
+  setTimeout(() => { thanksModal.style.display = "none"; }, 300);
+}
 
 /* FORM SUBMISSION */
 document.getElementById("popupForm").addEventListener("submit", function(e){
-  e.preventDefault(); // Prevent default submit
+  e.preventDefault(); // prevent reload
   const form = e.target;
   fetch("https://formsubmit.co/lskyehya777@gmail.com", {
     method:"POST",
     body: new FormData(form)
   }).then(response => {
-    if(response.ok){ showThanks(); form.reset(); } 
+    if(response.ok){ showThanks(); form.reset(); closeForm(); } 
     else { alert("Error submitting form. Try again."); }
   }).catch(()=>{ alert("Error submitting form. Try again."); });
 });
