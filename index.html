@@ -11,7 +11,7 @@
 body { margin:0; font-family: Arial,sans-serif; background:#000; color:#eee; }
 * { box-sizing:border-box; }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
   min-height:70vh;
   display:flex;
@@ -25,21 +25,18 @@ body { margin:0; font-family: Arial,sans-serif; background:#000; color:#eee; }
   font-family: 'Poppins', sans-serif;
   font-size: clamp(2.5rem,6vw,4.5rem);
   font-weight:800;
-  margin:0;
+  margin:0 0 15px 0;
   background: linear-gradient(90deg, #ff0000, #ffcc00);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation: heroFade 1.4s ease forwards;
 }
 .hero p {
-  margin-top:15px;
   font-size:1.1rem;
   color:#bbb;
-  animation: heroFade 1.8s ease forwards;
-}
-@keyframes heroFade {
-  from { opacity:0; transform:translateY(30px); }
-  to { opacity:1; transform:translateY(0); }
+  line-height:1.6;
+  text-align:left;
+  max-width:900px;
+  margin:0 auto;
 }
 
 /* HEADER */
@@ -80,7 +77,7 @@ header p { color:#ccc; }
 .modal-content p { margin-bottom:20px; font-size:1rem; }
 .modal-content .close { position:absolute; top:10px; right:15px; font-size:24px; font-weight:bold; cursor:pointer; color:#333; }
 .modal-content input, .modal-content textarea { width:100%; padding:12px; margin:10px 0; border-radius:6px; border:1px solid #ccc; }
-.modal-content button { padding:12px 18px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; background:#ff4000; color:#fff; }
+.modal-content button { padding:12px 18px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; background:#ff8000; color:#fff; }
 
 /* THANK YOU MODAL */
 #thanksModal h2 { background: linear-gradient(90deg, #ff0000, #ffcc00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:2rem; font-weight:800; margin:10px 0; }
@@ -104,14 +101,14 @@ footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222;
   <div>
     <h1>Welcome to Our Website!</h1>
     <p>
-      We are Yehya and Imtinan, the creators behind LSKYehya and LSK Football. Our mission is to bring you the best 4K clips from your favorite moments – completely free! Whether it’s epic goals, viral highlights, or unforgettable plays, we make sure you never miss a moment.<br><br>
-      But that’s not all! We also help content creators grow their channels by providing high-quality edits, clips, and custom content at affordable prices. Our goal is to make collaboration easy and fun, whether you’re a YouTuber, TikToker, or social media enthusiast.<br><br>
-      By working with us, you get:<br>
-      • Free 4K clips for your projects<br>
-      • Professional video edits tailored to your style<br>
-      • Support and collaboration opportunities to help your channel grow<br>
-      • Quick and easy access to content that makes your videos stand out<br><br>
-      We believe in quality, creativity, and community. If you want to take your content to the next level, you’re in the right place. Join us, collaborate, and let’s make amazing videos together!
+We are Yehya and Imtinan, the creators behind LSKYeHya and LSK Football, two passionate content creators who live and breathe football, YouTube, and viral video content. This website is our hub to share, create, and collaborate, bringing you the highest quality 4K clips, football edits, and creative content designed to help creators and fans alike.<br><br>
+Our mission is simple: provide free, high-quality 4K clips, offer professional video edits at reasonable prices, and build a community where creators can collaborate and grow together. Whether you are a football fan, a YouTuber looking for epic highlights, or a content creator in need of professional edits, you’ve come to the right place.<br><br>
+Here’s what we offer:<br>
+• Free 4K Clips: Get access to the latest viral moments, epic football highlights, and trending content, ready to use for your videos.<br>
+• Professional Editing Services: Custom video edits at affordable prices, focusing on football edits, especially Ronaldo!<br>
+• Collaborations and Partnerships: Work with us to grow your channel and reach a bigger audience.<br>
+• Creator Support: Guidance, editing help, and content ideas for your projects.<br><br>
+At LSKYeHya & LSK Football, we value creativity, quality, and accessibility. Join our community today, explore our content, and let’s create amazing videos together!
     </p>
   </div>
 </section>
@@ -145,19 +142,11 @@ footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222;
   </div>
   <div class="service-box">
     <h3>🤝 Collaborations</h3>
-    <p>We work with creators for shoutouts, joint edits, and football projects.</p>
+    <p>Work with creators and influencers to grow your channel and reach a bigger audience.</p>
   </div>
   <div class="service-box">
     <h3>✂️ Video Editing</h3>
-    <p>Professional football video edits, including:</p>
-    <ul style="text-align:left; margin-left:20px; color:#ccc;">
-      <li>Goal highlights & match moments</li>
-      <li>Player-specific edits (Ronaldo, Messi, etc.)</li>
-      <li>Slow-motion & cinematic transitions</li>
-      <li>Shorts & Reels formatted for YouTube/Instagram/TikTok</li>
-      <li>Custom effects and hype edits</li>
-      <li>Subscriber & fan-requested edits</li>
-    </ul>
+    <p>Professional football edits for YouTube, TikTok, Instagram, and social media. Special focus on Ronaldo edits!</p>
     <button onclick="openForm()" class="sub-btn" style="background:#ff8000; margin-top:10px;">Request an Edit</button>
   </div>
 </div>
@@ -190,19 +179,14 @@ footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222;
 <footer>© 2026 LSK Football & LSK Yehya • Football Editing Experts</footer>
 
 <script>
-/* OPEN FORM MODAL */
 function openForm() {
   document.getElementById("formModal").style.display = "flex";
 }
-
-/* FORM SUBMISSION */
 document.getElementById("requestForm").addEventListener("submit", function(e){
   e.preventDefault();
   document.getElementById("formModal").style.display = "none";
   document.getElementById("thanksModal").style.display = "flex";
 });
-
-/* CLOSE THANK YOU MODAL */
 function closeThanks() {
   document.getElementById("thanksModal").style.display = "none";
 }
