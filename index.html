@@ -3,53 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-adsense-account" content="ca-pub-7080903047441186">
-<meta name="google-site-verification" content="pyq7_3McuBCphIUtGdxanZfBpcIfoXq54fWiHwyS07Q" />
 <title>LSK Yehya & LSK Football</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* General styles */
-body { margin:0; font-family:'Poppins', sans-serif; background:#000; color:#eee; }
+/* GENERAL STYLES */
+body { margin:0; font-family: Arial,sans-serif; background:#000; color:#eee; }
 * { box-sizing:border-box; }
 
-/* Hero Section */
-.hero { min-height:70vh; display:flex; justify-content:center; align-items:center; text-align:center; background:radial-gradient(circle at top,#111 0%,#000 70%); }
-.hero h1 { font-size:clamp(2.5rem,6vw,4.5rem); font-weight:800; background:linear-gradient(90deg,#ff7f00,#ffcc00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:0; }
-.hero p { margin-top:15px; color:#bbb; }
+/* HERO */
+.hero {
+  min-height:70vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background: radial-gradient(circle at top, #111 0%, #000 70%);
+  padding:20px;
+}
+.hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.5rem,6vw,4.5rem);
+  font-weight:800;
+  margin:0;
+  background: linear-gradient(90deg, #ff0000, #ffcc00);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: heroFade 1.4s ease forwards;
+}
+.hero p {
+  margin-top:15px;
+  font-size:1.1rem;
+  color:#bbb;
+  animation: heroFade 1.8s ease forwards;
+}
+@keyframes heroFade {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
 
-/* Header */
-header { text-align:center; padding:30px 15px; border-bottom:1px solid #222; }
+/* HEADER */
+header { text-align:center; padding:20px 15px; }
 header h1 { margin:0; font-size:26px; }
 header p { color:#ccc; }
 
-/* Channel sections */
+/* CHANNEL SECTIONS */
 .channel { max-width:900px; margin:40px auto; padding:20px; display:flex; flex-wrap:wrap; align-items:center; gap:20px; background:#0f0f0f; border-radius:12px; }
 .channel img { width:150px; }
 .channel-content { flex:1; }
 .channel-content h2 { margin-top:0; }
-.sub-btn { display:inline-block; padding:12px 22px; border-radius:30px; font-weight:bold; cursor:pointer; border:none; margin-top:10px; text-decoration:none; }
-.red { background:#ff4500; color:white; }
+.sub-btn {
+  display:inline-block;
+  padding:12px 22px;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+  border:none;
+  margin-top:10px;
+  text-decoration:none;
+  color:#fff;
+  background:#ff4000; /* Orangish */
+}
+.channel-content p { margin:8px 0; }
+.channel-content span { font-size:13px; color:#aaa; }
 
-/* Services */
+/* SERVICES / COLLAB */
 .services { max-width:900px; margin:50px auto; padding:20px; display:flex; flex-wrap:wrap; gap:20px; }
 .service-box { flex:1 1 260px; background:#0f0f0f; padding:20px; border-radius:10px; }
 .service-box h3 { margin-top:0; color:#ffcc00; }
-.service-box p, .service-box ul { color:#ccc; }
+.service-box p { color:#ccc; }
 
-/* Form Modal */
-#formModal, #thanksModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:9999; }
-.modal-content { background:#fff; color:#000; padding:25px; border-radius:12px; width:90%; max-width:500px; text-align:center; position:relative; }
-.modal-content h2 { margin-top:0; color:#ff4500; }
-.modal-content p { color:#111; }
-.modal-content input, .modal-content textarea { width:100%; padding:10px; margin:10px 0; border-radius:6px; border:1px solid #ccc; }
-.modal-content button { padding:12px 20px; border:none; border-radius:30px; font-weight:bold; background:#ff7f00; color:white; cursor:pointer; }
+/* FORM MODAL */
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.75); justify-content:center; align-items:center; z-index:1000; }
+.modal-content { background:#fff; padding:30px; border-radius:12px; max-width:500px; width:90%; text-align:center; position:relative; box-shadow:0 10px 25px rgba(0,0,0,0.4); color:#000; }
+.modal-content h2 { margin:0 0 15px 0; font-family:'Poppins',sans-serif; font-size:1.8rem; font-weight:800; }
+.modal-content p { margin-bottom:20px; font-size:1rem; }
+.modal-content .close { position:absolute; top:10px; right:15px; font-size:24px; font-weight:bold; cursor:pointer; color:#333; }
+.modal-content input, .modal-content textarea { width:100%; padding:12px; margin:10px 0; border-radius:6px; border:1px solid #ccc; }
+.modal-content button { padding:12px 18px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; background:#ff4000; color:#fff; }
 
-/* Footer */
-footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222; }
+/* THANK YOU MODAL */
+#thanksModal h2 { background: linear-gradient(90deg, #ff0000, #ffcc00); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-size:2rem; font-weight:800; margin:10px 0; }
+#thanksModal p { font-size:1rem; margin:15px 0; }
+#thanksModal button { background:#ff4000; color:#fff; padding:10px 18px; border:none; border-radius:8px; font-weight:bold; cursor:pointer; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
+
+footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222; margin-top:40px; }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -59,19 +102,28 @@ footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222;
 
 <section class="hero">
   <div>
-    <h1>Welcome to Our Website</h1>
-    <p>Football edits • Shorts • Free clips • Professional content</p>
+    <h1>Welcome to Our Website!</h1>
+    <p>
+      We are Yehya and Imtinan, the creators behind LSKYeHya and LSK Football. Our mission is to bring you the best 4K clips from your favorite moments – completely free! Whether it’s epic goals, viral highlights, or unforgettable plays, we make sure you never miss a moment.<br><br>
+      But that’s not all! We also help content creators grow their channels by providing high-quality edits, clips, and custom content at affordable prices. Our goal is to make collaboration easy and fun, whether you’re a YouTuber, TikToker, or social media enthusiast.<br><br>
+      By working with us, you get:<br>
+      • Free 4K clips for your projects<br>
+      • Professional video edits tailored to your style<br>
+      • Support and collaboration opportunities to help your channel grow<br>
+      • Quick and easy access to content that makes your videos stand out<br><br>
+      We believe in quality, creativity, and community. If you want to take your content to the next level, you’re in the right place. Join us, collaborate, and let’s make amazing videos together!
+    </p>
   </div>
 </section>
 
-<!-- Channels -->
+<!-- CHANNELS -->
 <div class="channel">
   <img src="lskfootball.png" alt="LSK Football">
   <div class="channel-content">
     <h2>LSK Football</h2>
     <p>High-energy football edits, Ronaldo moments, match highlights, viral shorts.</p>
-    <a href="https://www.youtube.com/@lsk_football" target="_blank" class="sub-btn red">▶ YouTube</a>
-    <p style="font-size:13px;color:#aaa;">After subscribing, return here for free clips 🎬</p>
+    <a class="sub-btn" href="https://www.youtube.com/@lsk_football" target="_blank">▶ YouTube</a>
+    <span>After subscribing on YouTube, return here for free clips 🎬</span>
   </div>
 </div>
 
@@ -79,13 +131,13 @@ footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222;
   <img src="lskyehya.png" alt="LSK Yehya">
   <div class="channel-content">
     <h2>LSK Yehya</h2>
-    <p>Smooth football edits, cinematic transitions, aesthetic reels, viral football shorts.</p>
-    <a href="https://www.youtube.com/@lskyehya" target="_blank" class="sub-btn red">▶ YouTube</a>
-    <p style="font-size:13px;color:#aaa;">After subscribing, return here for free clips 🎬</p>
+    <p>Smooth football edits, cinematic transitions, aesthetic reels, viral shorts.</p>
+    <a class="sub-btn" href="https://www.youtube.com/@lskyehya" target="_blank">▶ YouTube</a>
+    <span>After subscribing on YouTube, return here for free clips 🎬</span>
   </div>
 </div>
 
-<!-- Services -->
+<!-- SERVICES -->
 <div class="services">
   <div class="service-box">
     <h3>🎬 Free Clips</h3>
@@ -93,11 +145,12 @@ footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222;
   </div>
   <div class="service-box">
     <h3>🤝 Collaborations</h3>
-    <p>Shoutouts, joint edits, and football projects with creators.</p>
+    <p>We work with creators for shoutouts, joint edits, and football projects.</p>
   </div>
   <div class="service-box">
     <h3>✂️ Video Editing</h3>
-    <ul>
+    <p>Professional football video edits, including:</p>
+    <ul style="text-align:left; margin-left:20px; color:#ccc;">
       <li>Goal highlights & match moments</li>
       <li>Player-specific edits (Ronaldo, Messi, etc.)</li>
       <li>Slow-motion & cinematic transitions</li>
@@ -105,54 +158,54 @@ footer { text-align:center; padding:20px; color:#888; border-top:1px solid #222;
       <li>Custom effects and hype edits</li>
       <li>Subscriber & fan-requested edits</li>
     </ul>
-    <button class="sub-btn" style="background:#ff7f00; color:white;" onclick="openForm()">Request an Edit</button>
+    <button onclick="openForm()" class="sub-btn" style="background:#ff8000; margin-top:10px;">Request an Edit</button>
   </div>
 </div>
 
-<!-- Form Modal -->
-<div id="formModal">
+<!-- FORM MODAL -->
+<div id="formModal" class="modal">
   <div class="modal-content">
+    <span class="close" onclick="document.getElementById('formModal').style.display='none'">&times;</span>
     <h2>Request an Edit</h2>
     <p>Fill the form below and tell us what kind of football edit you want.</p>
-    <form id="editForm" action="https://formsubmit.co/lskyehya777@gmail.com" method="POST">
+    <form id="requestForm">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" rows="5" placeholder="Describe the edit you want (player, style, duration, platform)" required></textarea>
-      <input type="hidden" name="_cc" value="bestlsk69@gmail.com">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
       <button type="submit">Submit Request</button>
     </form>
   </div>
 </div>
 
-<!-- Thank You Modal -->
-<div id="thanksModal">
+<!-- THANK YOU MODAL -->
+<div id="thanksModal" class="modal">
   <div class="modal-content">
-    <h2>✅ Thank You!</h2>
-    <p>Your request has been submitted successfully. We will get back to you soon!</p>
+    <span class="close" onclick="closeThanks()">&times;</span>
+    <h2>Thank You!</h2>
+    <p>Your request has been submitted successfully.<br>We will get back to you soon.</p>
     <button onclick="closeThanks()">Close</button>
   </div>
 </div>
 
-<footer>
-  © 2026 LSK Football & LSK Yehya • Football Editing Experts
-</footer>
+<footer>© 2026 LSK Football & LSK Yehya • Football Editing Experts</footer>
 
 <script>
-// Open form modal
-function openForm() { document.getElementById("formModal").style.display = "flex"; }
+/* OPEN FORM MODAL */
+function openForm() {
+  document.getElementById("formModal").style.display = "flex";
+}
 
-// Close thank you modal
-function closeThanks() { document.getElementById("thanksModal").style.display = "none"; }
-
-// Handle form submission
-document.getElementById("editForm").addEventListener("submit", function(e){
-  e.preventDefault(); // Prevent page redirect
-  this.submit();       // Send form
-  document.getElementById("formModal").style.display = "none"; // Hide form
-  document.getElementById("thanksModal").style.display = "flex"; // Show thanks
+/* FORM SUBMISSION */
+document.getElementById("requestForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  document.getElementById("formModal").style.display = "none";
+  document.getElementById("thanksModal").style.display = "flex";
 });
+
+/* CLOSE THANK YOU MODAL */
+function closeThanks() {
+  document.getElementById("thanksModal").style.display = "none";
+}
 </script>
 
 </body>
