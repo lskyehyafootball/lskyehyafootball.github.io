@@ -8,6 +8,85 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* Modal background */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Premium Thank You Box */
+.thanks-box {
+  background: #ffffff;
+  color: #111;
+  padding: 40px 30px;
+  border-radius: 18px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+  animation: popUp 0.6s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* Heading */
+.thanks-box h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #ff7a00;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Text */
+.thanks-box p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Close icon */
+.thanks-box .close {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  color: #555;
+}
+
+/* Button */
+.thanks-btn {
+  margin-top: 25px;
+  padding: 12px 26px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #ff7a00, #ff3d00);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: transform 0.2s ease;
+}
+
+.thanks-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes popUp {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -292,12 +371,18 @@ Our professional editing service is designed specifically for football content c
 </form>
 </div>
 </div>
-
 <div class="modal" id="thanksModal">
-<div class="modal-box">
-<span class="close" onclick="closeThanks()">✖</span>
-<h3>Thank You!</h3>
-<p>Your request has been successfully submitted.</p>
+  <div class="thanks-box">
+    <span class="close" onclick="closeThanks()">✖</span>
+
+    <h2>Thank You! 🎉</h2>
+    <p>
+      Your request has been successfully submitted.<br>
+      We truly appreciate your interest and will get back to you very soon.
+    </p>
+
+    <button class="thanks-btn" onclick="closeThanks()">Back to Website</button>
+  </div>
 </div>
 </div>
 
@@ -309,18 +394,23 @@ stroke-dasharray="163" stroke-dashoffset="163" id="circle"/>
 </svg>
 <span>↑</span>
 </div>
-
 <script>
-function openForm(){formModal.style.display="flex"}
-function closeForm(){formModal.style.display="none"}
-function submitForm(e){e.preventDefault();closeForm();thanksModal.style.display="flex"}
-function closeThanks(){thanksModal.style.display="none"}
-function scrollToTop(){window.scrollTo({top:0,behavior:"smooth"})}
-const circle=document.getElementById("circle"),circ=163;
-window.addEventListener("scroll",()=>{
-let h=document.documentElement.scrollHeight-innerHeight;
-circle.style.strokeDashoffset=circ-(scrollY/h)*circ;
-});
+function submitForm(e) {
+  e.preventDefault();
+
+  document.getElementById("formModal").style.display = "none";
+  document.getElementById("thanksModal").style.display = "flex";
+
+  e.target.reset();
+}
+
+function closeForm() {
+  document.getElementById("formModal").style.display = "none";
+}
+
+function closeThanks() {
+  document.getElementById("thanksModal").style.display = "none";
+}
 </script>
 
 </body>
