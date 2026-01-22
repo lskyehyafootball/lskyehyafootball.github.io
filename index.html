@@ -395,22 +395,51 @@ stroke-dasharray="163" stroke-dashoffset="163" id="circle"/>
 <span>↑</span>
 </div>
 <script>
-function submitForm(e) {
-  e.preventDefault();
+/* ================= FORM ================= */
 
-  document.getElementById("formModal").style.display = "none";
-  document.getElementById("thanksModal").style.display = "flex";
-
-  e.target.reset();
+function openForm() {
+  document.getElementById("formModal").style.display = "flex";
 }
 
 function closeForm() {
   document.getElementById("formModal").style.display = "none";
 }
 
+function submitForm(e) {
+  e.preventDefault();
+
+  closeForm();
+  document.getElementById("thanksModal").style.display = "flex";
+
+  e.target.reset();
+}
+
 function closeThanks() {
   document.getElementById("thanksModal").style.display = "none";
 }
+
+/* ================= SCROLL TO TOP ================= */
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+/* ================= SCROLL PROGRESS CIRCLE ================= */
+
+const circle = document.getElementById("circle");
+const circumference = 163;
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollTop / docHeight;
+
+  circle.style.strokeDashoffset =
+    circumference - progress * circumference;
+});
 </script>
 
 </body>
